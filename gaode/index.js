@@ -4,8 +4,12 @@ let map = null
 const areaMarkers = {}
 let showArea = false
 
+const redIcon = new AMap.Icon({
+  image: '/coordinate-red.svg', // Icon的图像
+  imageSize: new AMap.Size(30, 30)
+})
 const blueIcon = new AMap.Icon({
-  image: '/coordinates.png', // Icon的图像
+  image: '/coordinate-blue.svg', // Icon的图像
   imageSize: new AMap.Size(30, 30)
 })
 
@@ -60,12 +64,11 @@ const addPolygon = (areaId, polylines, fillColor) => {
 
 const addMarkers = (areaId, markers) => {
   const mapMarkers = markers.map((marker) => {
-    // marker.color
     return new AMap.Marker({
       position: getLngLatInstance(marker.position),
       visible: false,
       // content: '<img src="/coordinates.png" style="width:30px"></div>',
-      icon: blueIcon, //'/coordinates.png'
+      icon: marker.color === 'red' ? redIcon : blueIcon, //'/coordinates.png'
       offset: new AMap.Pixel(-15, -30) // 以图标中线和底部为基准: 上下偏移图片高度，左右偏移半个图片宽度
     })
   })
