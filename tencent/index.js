@@ -83,14 +83,14 @@ const addMarkers = (areaId, markers) => {
       blue: new TMap.MarkerStyle({
         width: 30, // 点标记样式宽度（像素）
         height: 30, // 点标记样式高度（像素）
-        src: '/coordinate-blue.svg', //图片路径
+        src: './coordinate-blue.svg', //图片路径
         //焦点在图片中的像素位置，一般大头针类似形式的图片以针尖位置做为焦点，圆形点以圆心位置为焦点
         anchor: { x: 16, y: 32 }
       }),
       red: new TMap.MarkerStyle({
         width: 30, // 点标记样式宽度（像素）
         height: 30, // 点标记样式高度（像素）
-        src: '/coordinate-red.svg', //图片路径
+        src: './coordinate-red.svg', //图片路径
         //焦点在图片中的像素位置，一般大头针类似形式的图片以针尖位置做为焦点，圆形点以圆心位置为焦点
         anchor: { x: 16, y: 32 }
       })

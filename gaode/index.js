@@ -5,11 +5,11 @@ const areaMarkers = {}
 let showArea = false
 
 const redIcon = new AMap.Icon({
-  image: '/coordinate-red.svg', // Icon的图像
+  image: './coordinate-red.svg', // Icon的图像
   imageSize: new AMap.Size(30, 30)
 })
 const blueIcon = new AMap.Icon({
-  image: '/coordinate-blue.svg', // Icon的图像
+  image: './coordinate-blue.svg', // Icon的图像
   imageSize: new AMap.Size(30, 30)
 })
 
