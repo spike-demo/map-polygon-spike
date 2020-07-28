@@ -3,6 +3,7 @@
     "id": 1,
     "name": "光谷中心城",
     "fillColor": "red",
+    "fillColor-tencent": "rgba(255, 0, 0, 0.2)",
     "polylines": [
       "114.430408,30.503824",
       "114.45341,30.508853",
@@ -21,19 +22,23 @@
     "markers": [
       {
         "color": "blue",
-        "position": "114.495639,30.499683"
+        "position": "114.495639,30.499683",
+        "title": "position1"
       },
       {
         "color": "red",
-        "position": "114.474525,30.482672"
+        "position": "114.474525,30.482672",
+        "title": "position2"
       },
       {
         "color": "blue",
-        "position": "114.525165,30.464326"
+        "position": "114.525165,30.464326",
+        "title": "position3"
       },
       {
         "color": "red",
-        "position": "114.502961,30.485104"
+        "position": "114.502961,30.485104",
+        "title": "光谷五路地铁站"
       }
     ]
   }

@@ -35,8 +35,8 @@ const addPolygon = (areaId, polylines, fillColor) => {
     bubble: true,
     extData: {
       areaId
-    }
-    // visible: false
+    },
+    visible: false
   })
   polygon.on('click', () => {
     const { areaId } = polygon.getExtData()
@@ -53,7 +53,7 @@ const addPolygon = (areaId, polylines, fillColor) => {
     })
     const { areaId } = polygon.getExtData()
     areaMarkers[areaId].forEach((marker) => {
-      marker.show()
+      marker.hide()
     })
   })
   polygon.on('touchstart', () => {
@@ -64,13 +64,18 @@ const addPolygon = (areaId, polylines, fillColor) => {
 
 const addMarkers = (areaId, markers) => {
   const mapMarkers = markers.map((marker) => {
-    return new AMap.Marker({
+    const mapMarker = new AMap.Marker({
+      title: marker.title,
       position: getLngLatInstance(marker.position),
       visible: false,
       // content: '<img src="/coordinates.png" style="width:30px"></div>',
       icon: marker.color === 'red' ? redIcon : blueIcon, //'/coordinates.png'
       offset: new AMap.Pixel(-15, -30) // 以图标中线和底部为基准: 上下偏移图片高度，左右偏移半个图片宽度
     })
+    mapMarker.on('click', () => {
+      log(mapMarker.getTitle())
+    })
+    return mapMarker
   })
   map.add(mapMarkers)
   areaMarkers[areaId] = mapMarkers
