@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>map spike</title>
+    <script
+      type="text/javascript"
+      src="https://webapi.amap.com/maps?v=1.4.15&key=77737f6b7133d0846bbccfb2e7c16601"
+    ></script>
+    <style>
+      #container {
+        width: 370px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <span onclick="showAllArea()">showAllArea</span>
+    <!-- <span onclick="onCreateFence()">onCreateFence</span>
+    <span onclick="onGetFence()">onGetFence</span> -->
+    <div id="logger"></div>
+    <div id="container"></div>
+    <script type="module" src="./gaode/index.js"></script>
+  </body>
+</html>
