@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <style>
+      html,
+      body,
+      #container {
+        height: 100%;
+      }
+    </style>
+    <title>gps convertor</title>
+  </head>
+  <body>
+    <div>
+      convert the gps data from '/lgnlats/gps.json' to coordinate GCJ-02
+    </div>
+    <br />
+    <div id="json-result"></div>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=77737f6b7133d0846bbccfb2e7c16601&plugin=AMap.MouseTool"></script>
+    <script type="text/javascript">
+      const getLngLatInstance = (positionStr) => {
+        const res = positionStr.split(',')
+        const lng = parseFloat(res[0])
+        const lat = parseFloat(res[1])
+        return new AMap.LngLat(lng, lat)
+      }
+
+      const convertCoordinate = async () => {
+        const res = await fetch('./lgnlats/gps.json')
+        const gps = await res.json()
+        const gpsLngLats = gps.map((positionStr) =>
+          getLngLatInstance(positionStr)
+        )
+        console.log('gps', gpsLngLats)
+        AMap.convertFrom(gpsLngLats, 'gps', function (status, result) {
+          if (result.info === 'ok') {
+            var lnglats = result.locations // Array.<LngLat>
+            console.log('lnglats', lnglats)
+            const jsonObj = lnglats.map((x) => `${x.lng},${x.lat}`)
+            const str = JSON.stringify(jsonObj)
+            document.getElementById('json-result').innerHTML = str
+          } else {
+            console.error(result.info)
+          }
+        })
+      }
+
+      convertCoordinate()
+    </script>
+  </body>
+</html>
