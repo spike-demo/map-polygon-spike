@@ -36,7 +36,7 @@ const addPolygon = (areaId, polylines, fillColor) => {
       }
     ]
   })
-  polygon.setVisible(false)
+  // polygon.setVisible(false)
 
   // TODO: check multi polygon areas
   polygon.on('click', () => {
@@ -48,7 +48,7 @@ const addPolygon = (areaId, polylines, fillColor) => {
   })
   polygon.on('dblclick', () => {
     const styles = polygon.getStyles()
-    styles.polygon.color = 'rgba(255, 255, 0, 0.5)'
+    styles.polygon.color = 'rgba(255, 255, 255, 0)'
     polygon.setStyles(styles)
 
     const { id } = polygon.getGeometries()[0]
@@ -117,12 +117,12 @@ const addAreas = async () => {
 }
 
 window.onload = function () {
-  //定义地图中心点坐标
-  var center = new TMap.LatLng(30.584355, 114.298572)
+  // mark: 城市坐标
+  var center = new TMap.LatLng(30.509396, 114.670752)
   //定义map变量，调用 TMap.Map() 构造函数创建地图
   map = new TMap.Map(document.getElementById('container'), {
     center, //设置地图中心点坐标
-    zoom: 10, //设置地图缩放级别
+    zoom: 9, //设置地图缩放级别
     viewMode: '2D'
   })
   addAreas()

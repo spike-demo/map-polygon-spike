@@ -14,3 +14,7 @@ overlay guide https://lbs.amap.com/api/javascript-api/guide/overlays/marker
 腾讯地图
 
 api https://lbs.qq.com/webApi/javascriptGL/glGuide/glPolygon
+
+### mark params
+
+mark: 城市坐标

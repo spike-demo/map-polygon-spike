@@ -36,7 +36,7 @@ const addPolygon = (areaId, polylines, fillColor) => {
     extData: {
       areaId
     },
-    visible: false
+    visible: true
   })
   polygon.on('click', () => {
     const { areaId } = polygon.getExtData()
@@ -49,7 +49,7 @@ const addPolygon = (areaId, polylines, fillColor) => {
   })
   polygon.on('dblclick', () => {
     polygon.setOptions({
-      fillColor: 'yellow'
+      fillOpacity: 0
     })
     const { areaId } = polygon.getExtData()
     areaMarkers[areaId].forEach((marker) => {
@@ -91,7 +91,8 @@ const addAreas = async () => {
 }
 
 window.onload = function () {
-  map = new AMap.Map('container', { center: [114.298572, 30.584355], zoom: 10 })
+  // mark: 城市坐标
+  map = new AMap.Map('container', { center: [114.670752, 30.509396], zoom: 9 })
   addAreas()
 }
 
