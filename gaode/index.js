@@ -93,6 +93,9 @@ const addAreas = async () => {
 window.onload = function () {
   // mark: 城市坐标
   map = new AMap.Map('container', { center: [114.670752, 30.509396], zoom: 9 })
+  map.on('zoomchange', (p1, p2, p3) => {
+    log(`zoom: ${map.getZoom()}`)
+  })
   addAreas()
 }
 
