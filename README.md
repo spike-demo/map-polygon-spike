@@ -14,17 +14,18 @@
 ### 以高德为例创建 polygon 多边形和 marker 点坐标的方法
 
 ```js
-// 1. html中引入amap
+// 1. 首先需要到高德api官网注册开发者账号和使用的key(注册web端即可) 参考官网文档 https://lbs.amap.com/api/javascript-api/guide/abc/prepare
+// 2. html中引入amap
 <script
       type="text/javascript"
       src="https://webapi.amap.com/maps?v=1.4.15&key=77737f6b7133d0846bbccfb2e7c16601"
     ></script>
 <div id="container"></div>
 
-// 2. 创建map对象
+// 3. 创建map对象
 const map = new AMap.Map('container', { center: [114.670752, 30.509396], zoom: 9 })
 
-// 3. 创建polygon对象并加入map
+// 4. 创建polygon对象并加入map
 var polygon = new AMap.Polygon({
     path,
     fillColor, // 多边形填充颜色
@@ -39,7 +40,7 @@ var polygon = new AMap.Polygon({
   })
 map.add(polygon)
 
-// 4. 创建marker并加入map
+// 5. 创建marker并加入map
 // 自定义icon
 const redIcon = new AMap.Icon({
   image: './coordinate-red.svg', // Icon的图像
