@@ -97,6 +97,8 @@ window.onload = function () {
     log(`zoom: ${map.getZoom()}`)
   })
   addAreas()
+
+  console.log('MAP_ACTION', localStorage.getItem('MAP_ACTION'))
 }
 
 window.onCreateFence = () => {
