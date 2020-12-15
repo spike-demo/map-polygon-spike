@@ -1,5 +1,4 @@
 import { createGeoFence, getGeoFence } from './api.js'
-import eastlake from './eastlake.js'
 
 let map = null
 const areaMarkers = {}
@@ -91,8 +90,12 @@ const addAreas = async () => {
   })
 }
 
-const addTestArea = async (id, color) => {
-  addPolygon(id, eastlake, color)
+const addTestArea = (id, color) => {
+  setTimeout(async () => {
+    const res = await fetch('./lgnlats/eastlake.json')
+    const eastlake = await res.json()
+    addPolygon(id, eastlake, color)
+  })
 }
 
 window.onload = function () {
