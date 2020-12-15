@@ -1,4 +1,5 @@
 import { createGeoFence, getGeoFence } from './api.js'
+import eastlake from './eastlake.js'
 
 let map = null
 const areaMarkers = {}
@@ -23,8 +24,8 @@ const getLngLatInstance = (positionStr) => {
   return new AMap.LngLat(lng, lat)
 }
 
-const addPolygon = (areaId, polylines, fillColor) => {
-  const path = polylines.map((line) => getLngLatInstance(line))
+const addPolygon = (areaId, path, fillColor) => {
+  // const path = polylines.map((line) => getLngLatInstance(line))
 
   var polygon = new AMap.Polygon({
     path,
@@ -90,15 +91,17 @@ const addAreas = async () => {
   })
 }
 
+const addTestArea = async (id, color) => {
+  addPolygon(id, eastlake, color)
+}
+
 window.onload = function () {
   // mark: 城市坐标
   map = new AMap.Map('container', { center: [114.670752, 30.509396], zoom: 9 })
   map.on('zoomchange', (p1, p2, p3) => {
     log(`zoom: ${map.getZoom()}`)
   })
-  addAreas()
-
-  console.log('MAP_ACTION', localStorage.getItem('MAP_ACTION'))
+  addTestArea(1, 'grey')
 }
 
 window.onCreateFence = () => {
