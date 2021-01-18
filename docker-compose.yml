@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    image: map-spike/web
+    restart: always
+    ports:
+      - 3500:80
+    volumes:
+      - ./default.conf:/etc/nginx/nginx.conf
