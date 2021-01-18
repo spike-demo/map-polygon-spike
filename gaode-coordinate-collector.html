@@ -37,7 +37,7 @@
     <div class="info">
       操作说明：圆和矩形通过拖拽来绘制，其他覆盖物通过点击来绘制
     </div>
-    <div class="input-card" style="width: 24rem;">
+    <div class="input-card" style="width: 24rem">
       <div class="input-item">
         <input id="clear" type="button" class="btn" value="清除" />
         <input id="close" type="button" class="btn" value="关闭绘图" />
@@ -58,7 +58,7 @@
         overlays.push(e.obj)
         const path = e.obj.getPath()
         console.log('polygon path', path)
-        const jsonObj = path.map((x) => `${x.lng},${x.lat}`)
+        const jsonObj = path.map((x) => [x.lng+"", x.lat+""])
         console.log('polylines', JSON.stringify(jsonObj))
       })
 
